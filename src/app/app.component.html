@@ -1,7 +1,19 @@
 <app-navbar></app-navbar>
 <div class="container">
   <div class="starter-template">
-      <h1>Bootstrap starter template</h1>
-      <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+      <h1>Gavagai Sentiment Visualization</h1>
+      <p class="lead">Please click the 'Analyze' button to analyze your text.<br></p>
+      <app-upload-file></app-upload-file>
+      <button type="button" class="btn btn-primary analyze" (click)="analyze($event)" [disabled]="showAnalysis">Analyze</button>
+      <div class="row">
+        <div class="chartA col-md-6">
+            <h4 *ngIf="chartA">Text A</h4>
+            <app-chart *ngIf="chartA" [text]="chartA" ></app-chart>
+        </div>
+        <div class="chartB col-md-6">
+            <h4 *ngIf="chartB">Text B</h4>
+            <app-chart *ngIf="chartB" [text]="chartB"></app-chart>
+        </div>
+      </div>
   </div>
 </div>
